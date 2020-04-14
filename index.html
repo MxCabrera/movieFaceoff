@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Quiz</title>
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body>
-    <header>
+    <header class="wrapper">
         <h1>So you think you're a movie buff</h1>
         <h2>Test how well you know your movies!</h2>
-        <button>how to play</button> 
-        <!-- put this here for now. We can put this in a popup or keep it displaying and remove how to play button -->
-        <p>Enter the correct answer based on the movie poster below and the question. If you guess it right, you move to the next level. If you guess wrong, you can always skip or guess again!</p>
+        <button class="howTo">how to play</button> 
+        <button class="letsPlay">Let's Play!</button>
     </header>
 
-    <main class="gameArea">
+    <main class="gameArea wrapper">
         <img class="movieImg" src = "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SY1000_CR0,0,674,1000_AL_.jpg" alt="placeholder for now">
         
         <form action="">
@@ -23,16 +23,14 @@
                 What year did this movie come out in?
             </p>
 
-            <label for="userAnswer" class="visuallyHidden">Enter answer here</label>
+            <label for="userAnswer" class="visuallyHidden"> Enter answer here</label>
             <input type="text" placeholder="enter answer here" id="userAnswer" name="userAnswer">
             
             <button type="submit">Submit</button>
 
         </form>
     </main>
-    
-    <header></header>
-    <main></main>
+
     <footer>
         <p>Created by Tiffany Tse and Aleksandar Nikolic</p>
     </footer>

@@ -24,31 +24,46 @@ $(document).ready(function () {
         });
     });
 
-    $('#submitAnswer').on('submit', function (event) {
+    //listen for submit on user answer and store's answer in a variable
+    $('.submitAnswer').on('submit', function (event) {
         event.preventDefault()
         let userResponse = $('#userAnswer').val()
         console.log(userResponse);
     })
 
+    // Random Number Function for use below
+    const randomNumber = Math.floor(Math.random() * 20); 
 
+    
+    // AJAX Call
     movieApp.getData = () => {
         $.ajax({
-            url: "https://api.themoviedb.org/3/search/movie",
-            // https://api.themoviedb.org/3/movie/ - secondary URL that allows us to search for a movies 'id'. The Godfathers is 238.
+            url: 'https://api.themoviedb.org/3/movie/popular',
             method: 'GET',
             dataType: 'json',
             data: {
                 api_key: movieApp.key,
-                query: "The Godfather"
-                // Trying to pass in userResponse here but scope issue
+                format: 'json',
             }
         }).then((result) => {
-            const movieYear = result
-            // Current search returns a bunch of results with multiple movies and multiple properties for each movie like release_year - unsuccessfully been trying to access it by result.release_year and release[0] to target first item with index 0
-            console.log(movieYear);
+            const movieImg = result.results[randomNumber].poster_path;
+            const movieRating = result.results[randomNumber].vote_average;
+            const movieURL = `https://image.tmdb.org/t/p/original/${movieImg}`;
+
+            console.log(movieURL);
+            console.log(movieRating);
+
+            // NOTE: movie year is formatted as release date like 2020-01-03 will need to think about how to pull just the year. For now - I've pulled the rating, as a backup maybe we can do a game where people choose which movie they think has a higher rating. We should just need to do the above in a second movie variable. Do a which rating number is higher and then a true or false for user click.
+
+
+            // Display to the DOM
+            const displayMovieImage = `
+            <img src="${movieURL}" alt="will figure out">
+        `
+                $('div').append(displayMovieImage);
         })
     }
 
-    movieApp.getData()
 
+    movieApp.getData()
 });

@@ -3,12 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie APP!</title>
+    <title>Movie Quiz</title>
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body>
-    <header></header>
-    <main></main>
+    <header class="wrapper">
+        <h1>So you think you're a movie buff</h1>
+        <h2>Test how well you know your movies!</h2>
+        <button class="howTo">how to play</button> 
+        <button class="letsPlay">Let's Play!</button>
+    </header>
+
+    <main class="gameArea wrapper">
+        <img class="movieImg" src = "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SY1000_CR0,0,674,1000_AL_.jpg" alt="placeholder for now">
+        
+        <form action="">
+            <p class="question">
+                What year did this movie come out in?
+            </p>
+
+            <label for="userAnswer" class="visuallyHidden"> Enter answer here</label>
+            <input type="text" placeholder="enter answer here" id="userAnswer" name="userAnswer">
+            
+            <button type="submit">Submit</button>
+
+        </form>
+    </main>
+
     <footer>
         <p>Created by Tiffany Tse and Aleksandar Nikolic</p>
     </footer>

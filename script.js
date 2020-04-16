@@ -28,39 +28,65 @@ movieApp.init = function () {
     });
 
     // Create this in the global scope let user response =
-    $('#submitAnswer').on('submit', function (event) {
+    $('.submitAnswer').on('submit', function (event) {
         event.preventDefault()
         movieApp.userResponse = $('#userAnswer').val()
         movieApp.callVariable(movieApp.userResponse)
     })
 
-    movieApp.getMovieById('238')
 }
 
 movieApp.callVariable = function (variable) {
     console.log(variable);
     // User response YYYY ==== movieYear.release_date splice off month/day and just get the YYYY
+
+    // GAME TWO STRETCH IDEA - which movie is better?
+        // two movies will display in the dom with pulled in rating. Can easily be done now that we've done it once below.
+        // user selects which movie they think is better
+        // We just need a if rating number is < or > statement and true false for user click
+        // how to avoid generating the same movie twice
 }
 
-movieApp.getMovieById = (movieId) => {
-    $.ajax({
-        url: `${movieApp.url}/${movieId}`,
+// get random number to be used to get random movie
+const randomNumber = Math.floor(Math.random() * 20);
+console.log(randomNumber);
 
+// AJAX CALL
+movieApp.getData = () => {
+    $.ajax({
+        url: 'https://api.themoviedb.org/3/movie/popular',
         method: 'GET',
         dataType: 'json',
         data: {
             api_key: movieApp.key,
-
+            format: 'json',
         }
     }).then((result) => {
-        const movieYear = result.release_date
-        console.log(result);
+        // Movie image
+        const movieImg = result.results[randomNumber].poster_path;
+        const movieURL = `https://image.tmdb.org/t/p/original/${movieImg}`;
+
+        // Movie Rating
+        const movieRating = result.results[randomNumber].vote_average;
+
+        // Movie Year
+        const movieYear = result.results[randomNumber].release_date;
+
+        // Console logs for testing
         console.log(movieYear);
-        let moviePoster = result.poster_path
-        // Logging our results.poster_path to see we are getting the end of the poster url
-        console.log(moviePoster);
+        console.log(movieURL);
+        console.log(movieRating);
+
+
+        // Display to the DOM
+        const displayMovieImage = `<img src="${movieURL}" alt="will figure out">`
+
+        $('div').append(displayMovieImage);
     })
+
 }
+
+movieApp.getData()
 
 // Document Ready
 $(document).ready(function () {

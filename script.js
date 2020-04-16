@@ -2,12 +2,6 @@ let movieApp = {}
 
 movieApp.userResponse;
 
-movieApp.generateQuestion = [
-    'What year was this movie made?',
-    'Can you name the director of this movie?',
-    'What was the average viewer rating for this movie?'
-]
-
 movieApp.key = '3628ebe0c40080ef9275f966a8eaaa92'
 
 movieApp.url = 'https://api.themoviedb.org/3/movie'
@@ -16,47 +10,27 @@ movieApp.init = function () {
     // listen for click on the how to play button to display alert 
     $('button.howTo').on('click', function (e) {
         e.preventDefault();
-        alert(`
-        Enter the correct answer based on the movie poster and the question below. 
-        If you guess it right, you move to the next level. 
-        If you guess wrong, you can always skip or guess again!`)
+        alert(`click the movie you think is more popular!`)
     });
 
     // listen for click on Let's Play button to scroll down the game area
     $("button.letsPlay").on('click', function () {
         $('html').animate({
-            scrollTop: $('main.gameArea').offset().top
+            scrollTop: $('footer').offset().top
         }, 'slow');
         return false;
     });
-
-    // User Response stored in a global variable
-    $('.submitAnswer').on('submit', function (event) {
-        event.preventDefault()
-        movieApp.userResponse = $('#userAnswer').val()
-        movieApp.callVariable(movieApp.userResponse)
-    })
-
-    // Display a random question to the DOM
-    $('.question').append(`<p>${randomQuestion}</p>`)
 }
 
-movieApp.callVariable = function (variable) {
-    console.log(variable);
-    // User response YYYY ==== movieYear.release_date splice off month/day and just get the YYYY
 
-    // GAME TWO STRETCH IDEA - which movie is better?
-        // two movies will display in the dom with pulled in rating. Can easily be done now that we've done it once below.
-        // user selects which movie they think is better
-        // We just need a if rating number is < or > statement and true false for user click
-        // how to avoid generating the same movie twice
-}
-
-// get random number to be used to get random movie and generate random question
+// get random number to be used to get 2 random movies 
+// if statement to ensure 2 different movies are stored
 const randomMovie = Math.floor(Math.random() * 20);
-const randomQuestion = movieApp.generateQuestion[Math.floor(Math.random() * movieApp.generateQuestion.length)]
-console.log(randomMovie);
-console.log(randomQuestion);
+let randomMovie2 = Math.floor(Math.random() * 20);
+    if (randomMovie2 === randomMovie) {
+        randomMovie2 = Math.floor(Math.random() * 20);
+    }
+
 
 // AJAX CALL
 movieApp.getData = () => {
@@ -69,26 +43,66 @@ movieApp.getData = () => {
             format: 'json',
         }
     }).then((result) => {
-        // Movie image
+        // Movie images
         const movieImg = result.results[randomMovie].poster_path;
         const movieURL = `https://image.tmdb.org/t/p/original/${movieImg}`;
 
-        // Movie Rating
-        const movieRating = result.results[randomMovie].vote_average;
+        const movieImg2 = result.results[randomMovie2].poster_path;
+        const movieURL2 = `https://image.tmdb.org/t/p/original/${movieImg2}`;
 
-        // Movie Year
-        const movieYear = result.results[randomMovie].release_date;
+        // Movie ratings
+        const movieRating = result.results[randomMovie].vote_average;
+        const movieRating2 = result.results[randomMovie2].vote_average;
+
 
         // Console logs for testing
-        console.log(movieYear);
         console.log(movieURL);
         console.log(movieRating);
+        console.log(movieRating2);
 
 
         // Display to the DOM
-        const displayMovieImage = `<img src="${movieURL}" alt="will figure out">`
+        const displayMovieImage = `<img class="movie1" src="${movieURL}" alt="will figure out">`
+        const displayMovieImage2 = `<img class="movie2" src="${movieURL2}" alt="will figure out">`
+        $('main').append(displayMovieImage);
+        $('main').append(displayMovieImage2);
 
-        $('div').append(displayMovieImage);
+
+        // Comparing the 2 movie ratings and storing the higher rated movie in popularMovie variable
+        if (movieRating > movieRating2) {
+            popularMovie = movieRating;
+        } else {
+            popularMovie = movieRating2;
+        }
+
+        let userSelection = 0;
+
+    // When user selects one of the movies store user selection in a variable called userSelection 
+    // assign userSelection to the corresponding movie rating
+    // Compare user selection with popularMovie variable - used if else statement to determine if user selected the more popular movie
+        $("img.movie1").on('click', function () {
+            userSelection = movieRating;
+            console.log(userSelection)
+            if (userSelection === popularMovie) {
+                console.log("CORRECT");
+            } else {
+                console.log("WRONG");
+            }
+        });
+
+        $("img.movie2").on('click', function () {
+            userSelection = movieRating2;
+            console.log(userSelection);
+            if (userSelection === popularMovie) {
+                console.log("CORRECT");
+            } else {
+                console.log("WRONG");
+            }
+        });
+
+
+
+        
     })
 
 }

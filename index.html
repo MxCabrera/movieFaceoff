@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <script src="https://kit.fontawesome.com/2f36dc9985.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
@@ -16,26 +18,14 @@
     </header>
 
     <main class="gameArea wrapper">
-        <div>
-
-        </div>
-        
-        <form class="submitAnswer" action="">
-            <p class="question">
-                
-            </p>
-
-            <label for="userAnswer" class="visuallyHidden"> Enter answer here</label>
-            <input type="text" placeholder="enter answer here" id="userAnswer" name="userAnswer">
-            
-            <button type="submit">Submit</button>
-
-        </form>
+        <div class="movieArea1 animated slow"><span class="animateResponse1"><i class="answerIcon1 fas fa-times"></i></span></div>
+        <div class="movieArea2 animated slow"><span class="animateResponse2"><i class="answerIcon2 fas fa-times"></i></span></div>
     </main>
-
+    
     <footer>
         <p>Created by Tiffany Tse and Aleksandar Nikolic</p>
     </footer>
+    
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="script.js"></script>
 </body>

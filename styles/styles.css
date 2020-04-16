@@ -262,7 +262,7 @@ header button.letsPlay {
 }
 
 main {
-  height: 100vh;
+  height: calc(100vh - 50px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -277,6 +277,7 @@ main {
 main img {
   max-height: 500px;
   margin-right: 20px;
+  width: 100%;
 }
 
 main p {
@@ -288,4 +289,60 @@ footer {
   font-weight: bold;
   text-align: center;
   margin-top: 15px;
+}
+
+.movieArea1,
+.movieArea2 {
+  position: relative;
+}
+
+.movieArea1 .animateResponse1,
+.movieArea1 .animateResponse2,
+.movieArea2 .animateResponse1,
+.movieArea2 .animateResponse2 {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.movieArea1 .animateResponse1 .answerIcon1,
+.movieArea1 .animateResponse1 .answerIcon2,
+.movieArea1 .animateResponse2 .answerIcon1,
+.movieArea1 .animateResponse2 .answerIcon2,
+.movieArea2 .animateResponse1 .answerIcon1,
+.movieArea2 .animateResponse1 .answerIcon2,
+.movieArea2 .animateResponse2 .answerIcon1,
+.movieArea2 .animateResponse2 .answerIcon2 {
+  display: none;
+  font-size: 5rem;
+  text-align: center;
+  width: 100%;
+  line-height: 500px;
+}
+
+.wrongResponse {
+  display: none;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.wrongResponse i {
+  color: red;
+}
+
+.correctResponse {
+  display: none;
+  background-color: rgba(30, 255, 0, 0.3);
+}
+
+.correctResponse i {
+  font-size: 5rem;
+  text-align: center;
+  width: 100%;
+  line-height: 500px;
+  color: green;
+}
+
+.displayIcons {
+  display: inline-block !important;
 }

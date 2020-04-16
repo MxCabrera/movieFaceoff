@@ -2,12 +2,15 @@ let movieApp = {}
 
 movieApp.userResponse;
 
+movieApp.generateQuestion = [
+    'What year was this movie made?',
+    'Can you name the director of this movie?',
+    'What was the average viewer rating for this movie?'
+]
+
 movieApp.key = '3628ebe0c40080ef9275f966a8eaaa92'
 
 movieApp.url = 'https://api.themoviedb.org/3/movie'
-
-// Declaring globally the poster value of our object
-movieApp.poster;
 
 movieApp.init = function () {
     // listen for click on the how to play button to display alert 
@@ -27,13 +30,15 @@ movieApp.init = function () {
         return false;
     });
 
-    // Create this in the global scope let user response =
+    // User Response stored in a global variable
     $('.submitAnswer').on('submit', function (event) {
         event.preventDefault()
         movieApp.userResponse = $('#userAnswer').val()
         movieApp.callVariable(movieApp.userResponse)
     })
 
+    // Display a random question to the DOM
+    $('.question').append(`<p>${randomQuestion}</p>`)
 }
 
 movieApp.callVariable = function (variable) {
@@ -47,9 +52,11 @@ movieApp.callVariable = function (variable) {
         // how to avoid generating the same movie twice
 }
 
-// get random number to be used to get random movie
-const randomNumber = Math.floor(Math.random() * 20);
-console.log(randomNumber);
+// get random number to be used to get random movie and generate random question
+const randomMovie = Math.floor(Math.random() * 20);
+const randomQuestion = movieApp.generateQuestion[Math.floor(Math.random() * movieApp.generateQuestion.length)]
+console.log(randomMovie);
+console.log(randomQuestion);
 
 // AJAX CALL
 movieApp.getData = () => {
@@ -63,14 +70,14 @@ movieApp.getData = () => {
         }
     }).then((result) => {
         // Movie image
-        const movieImg = result.results[randomNumber].poster_path;
+        const movieImg = result.results[randomMovie].poster_path;
         const movieURL = `https://image.tmdb.org/t/p/original/${movieImg}`;
 
         // Movie Rating
-        const movieRating = result.results[randomNumber].vote_average;
+        const movieRating = result.results[randomMovie].vote_average;
 
         // Movie Year
-        const movieYear = result.results[randomNumber].release_date;
+        const movieYear = result.results[randomMovie].release_date;
 
         // Console logs for testing
         console.log(movieYear);

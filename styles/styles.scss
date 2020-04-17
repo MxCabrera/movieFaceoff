@@ -15,42 +15,47 @@ header {
         font-size: 4rem;
         top: 500px;
         padding-top: 20%;
-    }
-
-    h2 {
-        font-size: 3rem;
-        margin: 20px 0px 30px 0px;
+        margin-bottom: 20px;
     }
 
     button {
-        margin: 0 auto;
         display: block;
-        padding: 5px 10px;
-    }
-
-    button.letsPlay {
-        font-weight: bold;
-        margin-top: 50px;
+        margin: 20px auto;
+        padding: 10px 20px;
+        display: inline-block;
         background: black;
         color: white;
-        padding: 15px 35px;
     }
 }
 
 main {
-    height: calc(100vh - 50px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    height: calc(100vh - 50px); 
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    button {
+        background: black;
+        color: white;
+        display: block;
+        padding: 15px 25px;
+        margin: 45px auto;
+        font-size: 1.8rem;
+    }
     img {
         max-height: 500px;
-        margin-right: 20px;
         width: 100%;
     }
-
     p {
-        font-size: 2rem;
+        position: absolute;
+        font-size: 7rem;
+    }
+    p.movieRating1 {
+        left: 10%;
+    }
+    p.movieRating2 {
+        right: 10%;
     }
 }
 

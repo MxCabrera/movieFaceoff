@@ -11,30 +11,56 @@ header {
     height: 100vh;
     text-align: center;
 
+    .skewedHeader1 {
+        background-color: #21243d;
+        transform: skew(0deg, -20deg) translateY(-400px);
+
+        h1 {
+            color: white;
+            padding-top: 40%;
+            padding-bottom: 2%;
+            padding-right: 20%;
+            transform: skew(0deg, 20deg);
+        }
+    }
+
+    .skewedHeader2 {
+        color: #21243d;
+
+        h1 {
+            transform: translateY(-400px);
+            color: #21243d;
+            padding-left: 20%;
+        }
+    }
+
     h1 {
         font-size: 4rem;
         top: 500px;
-        padding-top: 20%;
         margin-bottom: 20px;
     }
+
 
     button {
         display: block;
         margin: 20px auto;
         padding: 10px 20px;
         display: inline-block;
-        background: black;
+        background: #21243d;
         color: white;
+        transform: translateY(-400px);
     }
 }
 
 main {
-    height: calc(100vh - 50px); 
+    height: calc(100vh - 50px);
+
     section {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     button {
         background: black;
         color: white;
@@ -43,17 +69,21 @@ main {
         margin: 45px auto;
         font-size: 1.8rem;
     }
+
     img {
         max-height: 500px;
         width: 100%;
     }
+
     p {
         position: absolute;
         font-size: 7rem;
     }
+
     p.movieRating1 {
         left: 10%;
     }
+
     p.movieRating2 {
         right: 10%;
     }

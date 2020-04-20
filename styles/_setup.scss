@@ -10,3 +10,9 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 html {
     scroll-behavior: smooth 
 }
+
+.wrapper {
+    max-width: 1200px;
+    width: 80%;
+    margin: 0 auto;
+}

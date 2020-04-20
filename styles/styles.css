@@ -236,6 +236,11 @@ header {
   text-align: center;
 }
 
+header h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
 header .skewedHeader1 {
   background-color: #21243d;
   -webkit-transform: skew(0deg, -20deg) translateY(-400px);
@@ -262,14 +267,7 @@ header .skewedHeader2 h1 {
   padding-left: 20%;
 }
 
-header h1 {
-  font-size: 4rem;
-  top: 500px;
-  margin-bottom: 20px;
-}
-
 header button {
-  display: block;
   margin: 20px auto;
   padding: 10px 20px;
   display: inline-block;
@@ -296,7 +294,7 @@ main section {
 }
 
 main button {
-  background: black;
+  background: #21243d;
   color: white;
   display: block;
   padding: 15px 25px;
@@ -329,29 +327,23 @@ footer {
   margin-top: 15px;
 }
 
-.movieArea1,
-.movieArea2 {
+#movieArea1,
+#movieArea2 {
   position: relative;
 }
 
-.movieArea1 .animateResponse1,
-.movieArea1 .animateResponse2,
-.movieArea2 .animateResponse1,
-.movieArea2 .animateResponse2 {
+.clickable .animateResponse1,
+.clickable .animateResponse2 {
   height: 100%;
   position: absolute;
   width: 100%;
   z-index: 1;
 }
 
-.movieArea1 .animateResponse1 .answerIcon1,
-.movieArea1 .animateResponse1 .answerIcon2,
-.movieArea1 .animateResponse2 .answerIcon1,
-.movieArea1 .animateResponse2 .answerIcon2,
-.movieArea2 .animateResponse1 .answerIcon1,
-.movieArea2 .animateResponse1 .answerIcon2,
-.movieArea2 .animateResponse2 .answerIcon1,
-.movieArea2 .animateResponse2 .answerIcon2 {
+.clickable .animateResponse1 .answerIcon1,
+.clickable .animateResponse1 .answerIcon2,
+.clickable .animateResponse2 .answerIcon1,
+.clickable .animateResponse2 .answerIcon2 {
   display: none;
   font-size: 5rem;
   text-align: center;

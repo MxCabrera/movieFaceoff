@@ -1,22 +1,26 @@
 @import "setup";
 
-.wrapper {
-    max-width: 1200px;
-    width: 80%;
-    margin: 0 auto;
-}
+$secondaryColor: #21243d;
+$fontSecondary: white;
+
+
 
 // putting all styles here for now
 header {
     height: 100vh;
     text-align: center;
 
+    h1 {
+        font-size: 4rem;
+        margin-bottom: 20px;
+    }
+    
     .skewedHeader1 {
-        background-color: #21243d;
+        background-color: $secondaryColor;
         transform: skew(0deg, -20deg) translateY(-400px);
 
         h1 {
-            color: white;
+            color: $fontSecondary;
             padding-top: 40%;
             padding-bottom: 2%;
             padding-right: 20%;
@@ -25,29 +29,24 @@ header {
     }
 
     .skewedHeader2 {
-        color: #21243d;
+        color: $secondaryColor;
 
         h1 {
             transform: translateY(-400px);
-            color: #21243d;
+            color: $secondaryColor;
             padding-left: 20%;
         }
     }
 
-    h1 {
-        font-size: 4rem;
-        top: 500px;
-        margin-bottom: 20px;
-    }
+    
 
 
     button {
-        display: block;
         margin: 20px auto;
         padding: 10px 20px;
         display: inline-block;
-        background: #21243d;
-        color: white;
+        background: $secondaryColor;
+        color: $fontSecondary;
         transform: translateY(-400px);
     }
 }
@@ -62,8 +61,8 @@ main {
     }
 
     button {
-        background: black;
-        color: white;
+        background: $secondaryColor;
+        color: $fontSecondary;
         display: block;
         padding: 15px 25px;
         margin: 45px auto;
@@ -98,10 +97,12 @@ footer {
 
 
 // Font Awesome and game area div styling
-.movieArea1,
-.movieArea2 {
+#movieArea1,
+#movieArea2 {
     position: relative;
+}
 
+.clickable {
     .animateResponse1,
     .animateResponse2 {
         height: 100%;
@@ -119,6 +120,7 @@ footer {
         }
     }
 }
+
 
 .wrongResponse {
     display: none;

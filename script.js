@@ -47,116 +47,92 @@ movieApp.init = function () {
             const movieURL2 = `https://image.tmdb.org/t/p/original/${movieImg2}`;
 
             // Movie ratings
-            const movieRating1 = result.results[randomMovie1].vote_average;
-            const movieRating2 = result.results[randomMovie2].vote_average;
+            movieApp.movieRating1 = result.results[randomMovie1].vote_average;
+            movieApp.movieRating2 = result.results[randomMovie2].vote_average;
 
 
 
             // Display to the DOM
             const displayMovieImage1 = `<img class="movie1" src="${movieURL1}" alt="will figure out">`
             const displayMovieImage2 = `<img class="movie2" src="${movieURL2}" alt="will figure out">`
-            $('.movieArea1').append(displayMovieImage1);
-            $('.movieArea2').append(displayMovieImage2);
+            $('#movieArea1').append(displayMovieImage1);
+            $('#movieArea2').append(displayMovieImage2);
 
 
             // Comparing the 2 movie ratings and storing the higher rated movie in popularMovie variable
-            if (movieRating1 > movieRating2) {
-                popularMovie = movieRating1;
-                lessPopularMovie = movieRating2;
+            if (movieApp.movieRating1 > movieApp.movieRating2) {
+                popularMovie = movieApp.movieRating1;
+                lessPopularMovie = movieApp.movieRating2;
             } else {
-                popularMovie = movieRating2;
-                lessPopularMovie = movieRating1;
+                popularMovie = movieApp.movieRating2;
+                lessPopularMovie = movieApp.movieRating1;
             }
 
             // TO DO Alter this for name-spacing purposes? I.e. movieApp.userSelection
             let userSelection = 0;
 
 
-            // DRY TO DO - definetly need to figure out how to DRY the code below. It's essentially a copy of the same thing but with different click.
 
-            // When user selects one of the movies store user selection in a variable called userSelection 
-            // assign userSelection to the corresponding movie rating
-            // Compare user selection with popularMovie variable - used if else statement to determine tie, win and lose scenarios
-
-            // User chooses movie 1
-            $(".movieArea1").on('click', function () {
-                userSelection = movieRating1;
-                $('.movieRating1').append(movieRating1);
-                $('.movieRating2').append(movieRating2);
-
-                // tie scenario - both correct
-                if (movieRating1 === movieRating2) {
-                    $('.movieArea1').addClass('bounce');
-                    $('.animateResponse1').addClass('correctResponse').toggle()
-                    $('.answerIcon1').removeClass('fa-times').addClass('fa-check').addClass('displayIcons')
-
-                    $('.movieArea2').addClass('bounce');
-                    $('.animateResponse2').addClass('correctResponse').toggle()
-                    $('.answerIcon2').removeClass('fa-times').addClass('fa-check').addClass('displayIcons')
-                    // movie 1 is the popular movie, user clicks movie 1 - correct
-                } else if (userSelection === popularMovie) {
-                    $('.movieArea1').addClass('bounce');
-                    $('.animateResponse1').addClass('correctResponse').toggle()
-                    $('.answerIcon1').removeClass('fa-times').addClass('fa-check').addClass('displayIcons')
-                    // movie 2 is the popular movie, user clicks movie 1 - wrong
-                } else {
-                    $('.movieArea1').addClass('shake');
-                    $('.animateResponse1').addClass('wrongResponse').toggle()
-                    $('.answerIcon1').addClass('displayIcons')
-                };
-
-                // On click repopulate the DOM with new images for game replay
-                $("button.nextRound").on('click', function () {
-                    $('.movieArea1').empty(displayMovieImage1);
-                    $('.movieArea2').empty(displayMovieImage2);
-                    $('.movieRating1').empty(movieRating1);
-                    $('.movieRating2').empty(movieRating2);
-                    movieApp.getData().reset();
-                });
-            });
-
-            // User chooses movie 2
-            $(".movieArea2").on('click', function () {
-                userSelection = movieRating2;
-                $('.movieRating1').append(movieRating1);
-                $('.movieRating2').append(movieRating2);
-
-                // Tie scenario - both correct
-                if (movieRating1 === movieRating2) {
-                    $('.movieArea1').addClass('bounce');
-                    $('.animateResponse1').addClass('correctResponse').toggle()
-                    $('.answerIcon1').addClass('fa-check').addClass('displayIcons')
-
-                    $('.movieArea2').addClass('bounce');
-                    $('.animateResponse2').addClass('correctResponse').toggle()
-                    $('.answerIcon2').addClass('fa-check').addClass('displayIcons')
-                    // movie 2 is the popular movie, user clicks movie 2 - correct
-                }
-                if (userSelection === popularMovie) {
-                    $('.movieArea2').addClass('bounce');
-                    $('.animateResponse2').addClass('correctResponse').toggle()
-                    $('.answerIcon2').removeClass('fa-times').addClass('fa-check').addClass('displayIcons')
-                    // movie 1 is the popular movie, user clicks movie 2 - wrong
-                } else {
-                    $('.movieArea2').addClass('shake');
-                    $('.animateResponse2').addClass('wrongResponse').toggle()
-                    $('.answerIcon2').addClass('displayIcons')
-                }
-
-                // On click repopulate the DOM with new images for game replay
-                $("button.nextRound").on('click', function () {
-                    $('.movieArea1').empty(displayMovieImage1);
-                    $('.movieArea2').empty(displayMovieImage2);
-                    $('.movieRating1').empty(movieRating1);
-                    $('.movieRating2').empty(movieRating2);
-                    movieApp.getData().reset();
-                });
-            });
-        })
-    }
-
-    movieApp.getData()
+            
+            
+        });
 }
+
+    // User chooses a movie
+    // When user selects one of the movies store user selection in a variable called userSelection 
+    // Assign userSelection to the user selected movie
+
+    $(".clickable").on('click', function () {
+        const movieNumber = $(this).attr("id");
+            if (movieNumber === "movieRating1") {
+                userSelection = movieApp.movieRating1;
+            } else {
+                userSelection = movieApp.movieRating2;
+            }
+
+    // Display both movie rating on the DOM
+    $('.movieRating1').append(`${movieApp.movieRating1}`);
+    $('.movieRating2').append(`${movieApp.movieRating2}`);
+
+    // Compare user selection with popularMovie variable - used if else statement to determine tie, win and lose scenarios
+
+    // Both movies equally rating (TIE)
+    if (movieApp.movieRating1 === movieApp.movieRating2) {
+        $('#movieArea1').addClass('bounce');
+        $('.animateResponse1').addClass('correctResponse').toggle()
+        $('.answerIcon1').removeClass('fa-times').addClass('fa-check').addClass('displayIcons')
+
+        $('#movieArea2').addClass('bounce');
+        $('.animateResponse2').addClass('correctResponse').toggle()
+        $('.answerIcon2').removeClass('fa-times').addClass('fa-check').addClass('displayIcons')
+        
+        // User selects more popular movie (CORRECT)
+    } else if (userSelection === popularMovie) {
+        $(this).addClass('bounce');
+        $('.animateResponse1').addClass('correctResponse').toggle()
+        $('.answerIcon1').removeClass('fa-times').addClass('fa-check').addClass('displayIcons')
+        
+        // User selects less popular movie (INCORRECT)
+    } else {
+        $(this).addClass('shake');
+        $('.animateResponse1').addClass('wrongResponse').toggle()
+        $('.answerIcon1').addClass('displayIcons')
+    };
+});
+
+        // On click repopulate the DOM with new images for game replay
+        $("button.nextRound").on('click', function () {
+            $('#movieArea1').empty();
+            $('#movieArea2').empty();
+            $('.movieRating1').empty();
+            $('.movieRating2').empty();
+            movieApp.movieRating1 = null;
+            movieApp.movieRating2 = null;
+            movieApp.getData();
+        });
+
+        movieApp.getData()
+    }
 
 
 // Document Ready

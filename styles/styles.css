@@ -236,10 +236,35 @@ header {
   text-align: center;
 }
 
+header .skewedHeader1 {
+  background-color: #21243d;
+  -webkit-transform: skew(0deg, -20deg) translateY(-400px);
+          transform: skew(0deg, -20deg) translateY(-400px);
+}
+
+header .skewedHeader1 h1 {
+  color: white;
+  padding-top: 40%;
+  padding-bottom: 2%;
+  padding-right: 20%;
+  -webkit-transform: skew(0deg, 20deg);
+          transform: skew(0deg, 20deg);
+}
+
+header .skewedHeader2 {
+  color: #21243d;
+}
+
+header .skewedHeader2 h1 {
+  -webkit-transform: translateY(-400px);
+          transform: translateY(-400px);
+  color: #21243d;
+  padding-left: 20%;
+}
+
 header h1 {
   font-size: 4rem;
   top: 500px;
-  padding-top: 20%;
   margin-bottom: 20px;
 }
 
@@ -248,8 +273,10 @@ header button {
   margin: 20px auto;
   padding: 10px 20px;
   display: inline-block;
-  background: black;
+  background: #21243d;
   color: white;
+  -webkit-transform: translateY(-400px);
+          transform: translateY(-400px);
 }
 
 main {

@@ -6,16 +6,13 @@
 
     .clickable {
 
-        .animateResponse1,
-        .animateResponse2 {
+        .animateResponse {
             height: 100%;
-            margin-top: 15px;
             position: absolute;
             width: 100%;
             z-index: 1;
 
-            .answerIcon1,
-            .answerIcon2 {
+            .answerIcon {
                 display: none;
                 font-size: 5rem;
                 text-align: center;
@@ -45,6 +42,6 @@
         }
     }
 
-    .displayIcons {
+    .display {
         display: inline-block !important;
     }

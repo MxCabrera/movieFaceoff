@@ -78,60 +78,64 @@ movieApp.init = function () {
 
     $(".clickable").on('click', function () {
         let movieNumber = $(this).attr("id");
-        
+
+        $('.clickable').css('pointer-events', 'none')
+
         if (movieNumber === "movieArea1") {
             userSelection = movieApp.movieRating1;
         } else {
             userSelection = movieApp.movieRating2;
         }
 
+        // Append user score
+        $('.score').empty()
         
         // Compare user selection with popularMovie variable - used if else statement to determine tie, win and lose scenarios
         
         // Both movies equally rating (TIE)
         if (movieApp.movieRating1 === movieApp.movieRating2) {
-            $('#movieArea1, #movieArea2').addClass('bounce');
-            $('.animateResponse1, .animateResponse2').addClass('correctResponse').toggle()
-            $('.answerIcon1, .answerIcon2').removeClass('fa-times').addClass('fa-check').addClass('displayIcons')
-
-            // Add to the userScore
-            movieApp.userScore = movieApp.userScore + 1;
-            $('.score').empty()
-            $('.score').append(`Score: ${movieApp.userScore}`)
             
-
+            // Add correct response animation to the selected movie
+            $(this).toggleClass('bounce')
+            .find('.animateResponse').toggleClass('correctResponse display')
+            
+            // Display the correct check fontawesome icon
+            $(this).find('i').toggleClass('display fa-check')
+            
+            // Correct - add to the userScore
+            movieApp.userScore = movieApp.userScore + 1;
+            
             // User selects more popular movie (CORRECT)
         } else if (userSelection === popularMovie) {
-            console.log(this);
-            $(this).addClass('bounce');
-            $('.animateResponse1').addClass('correctResponse').toggle()
-            $('.answerIcon1').removeClass('fa-times').addClass('fa-check').addClass('displayIcons')
-
-            $(this).siblings(".movieArea").addClass('shake');
-            $('.animateResponse1').addClass('wrongResponse').toggle()
-            $('.answerIcon1').addClass('displayIcons')
-
+            
+            // Add correct response animation to the selected movie
+            $(this).toggleClass('bounce')
+            .find('.animateResponse').toggleClass('correctResponse display')
+            
+            // Display the correct check fontawesome icon
+            $(this).find('i').toggleClass('display fa-check')
+            
+            // Correct - add to the userScore
             movieApp.userScore = movieApp.userScore + 1;
-            $('.score').empty()
-            $('.score').append(`Score: ${movieApp.userScore}`)
-
+            
             // User selects less popular movie (INCORRECT)
         } else if (userSelection === lessPopularMovie) {
-            console.log(this);
-            $(this).addClass('shake');
-            $('.animateResponse1').addClass('wrongResponse').toggle()
-            $('.answerIcon1').addClass('displayIcons')
+            
+            // Add incorrect response animation to the selected movie
+            $(this).toggleClass('shake')
+            .find('.animateResponse').toggleClass('wrongResponse display')
+            
+            // Display the correct cross fontawesome icon
+            $(this).find('i').toggleClass('display fa-times')
 
-            $(this).siblings(".movieArea").addClass('bounce');
-            $('.animateResponse1').addClass('correctResponse').toggle()
-            $('.answerIcon1').removeClass('fa-times').addClass('fa-check').addClass('displayIcons')
-
+            // Incorrect - reset user score
             movieApp.userScore = 0;
         };
     });
-
-    // On click display both movie ratings to the DOM only once
+    
+    // On click display both movie ratings and userScore to the DOM
     $('#movieArea1, #movieArea2').on('click', function () {
+        $('.score').append(`Score: ${movieApp.userScore}`)
         $('.movieRating1, .movieRating2').empty()
         $('.movieRating1').append(`${movieApp.movieRating1}`);
         $('.movieRating2').append(`${movieApp.movieRating2}`);
@@ -141,8 +145,15 @@ movieApp.init = function () {
     // On click repopulate the DOM with new images for game replay
     $("button.nextRound").on('click', function () {
         $('#movieArea1, #movieArea2').children('img').remove();
-        $('.animateResponse1, .animateResponse2, answerIcon1, answerIcon2').hide();
+
+        if ($('.animateResponse').hasClass('display')) {
+            $('.answerIcon').removeClass('display fa-check fa-times')
+            $('.animateResponse').removeClass('display correctResponse wrongResponse')
+            $('.movieArea').removeClass('shake bounce')
+        }
+        
         $('.movieRating1, .movieRating2, .score').empty();
+        $('.clickable').css('pointer-events', 'auto')
         movieApp.movieRating1 = null;
         movieApp.movieRating2 = null;
         movieApp.getData();

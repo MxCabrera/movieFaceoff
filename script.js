@@ -50,13 +50,17 @@ movieApp.init = function () {
             const movieImg2 = result.results[randomMovie2].poster_path;
             const movieURL2 = `https://image.tmdb.org/t/p/original/${movieImg2}`;
 
+            // Movie title - to be used for alt text
+            const movieTitle1 = result.results[randomMovie1].original_title;
+            const movieTitle2 = result.results[randomMovie2].original_title;
+
             // Movie ratings from API
             movieApp.movieRating1 = result.results[randomMovie1].vote_average;
             movieApp.movieRating2 = result.results[randomMovie2].vote_average;
 
             // Display Images to the DOM
-            const displayMovieImage1 = `<img class="movie1" src="${movieURL1}" alt="will figure out">`
-            const displayMovieImage2 = `<img class="movie2" src="${movieURL2}" alt="will figure out">`
+            const displayMovieImage1 = `<img class="movie1" src="${movieURL1}" alt="${movieTitle1} movie poster">`
+            const displayMovieImage2 = `<img class="movie2" src="${movieURL2}" alt="${movieTitle2} movie poster">`
             $('#movieArea1').append(displayMovieImage1);
             $('#movieArea2').append(displayMovieImage2);
 
@@ -78,7 +82,7 @@ movieApp.init = function () {
 
     $(".clickable").on('click', function () {
         let movieNumber = $(this).attr("id");
-        
+        console.log(movieNumber);
         if (movieNumber === "movieArea1") {
             userSelection = movieApp.movieRating1;
         } else {
@@ -99,10 +103,8 @@ movieApp.init = function () {
             $('.score').empty()
             $('.score').append(`Score: ${movieApp.userScore}`)
             
-
             // User selects more popular movie (CORRECT)
         } else if (userSelection === popularMovie) {
-            console.log(this);
             $(this).addClass('bounce');
             $('.animateResponse1').addClass('correctResponse').toggle()
             $('.answerIcon1').removeClass('fa-times').addClass('fa-check').addClass('displayIcons')
@@ -117,7 +119,7 @@ movieApp.init = function () {
 
             // User selects less popular movie (INCORRECT)
         } else if (userSelection === lessPopularMovie) {
-            console.log(this);
+
             $(this).addClass('shake');
             $('.animateResponse1').addClass('wrongResponse').toggle()
             $('.answerIcon1').addClass('displayIcons')
@@ -126,7 +128,9 @@ movieApp.init = function () {
             $('.animateResponse1').addClass('correctResponse').toggle()
             $('.answerIcon1').removeClass('fa-times').addClass('fa-check').addClass('displayIcons')
 
+            $('.score').empty()
             movieApp.userScore = 0;
+            $('.score').append(`Score: ${movieApp.userScore}`)
         };
     });
 

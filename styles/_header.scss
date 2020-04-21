@@ -1,0 +1,31 @@
+
+    header {
+        height: 100vh;
+        text-align: center;
+        background: linear-gradient(to right bottom, $secondaryColor 50%, $fontSecondary 50%);
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        h1:first-child {
+            padding-top: 20%;
+            padding-right: 15%;
+            color: $fontSecondary;
+        }
+
+        h1:nth-child(2) {
+            color: $secondaryColor;
+            padding-left: 15%;
+            padding-bottom: 50px;
+        }
+    }
+
+    button {
+            margin: 20px auto;
+            padding: 10px 20px;
+            display: inline-block;
+            background: $secondaryColor;
+            color: $fontSecondary;
+        }
+

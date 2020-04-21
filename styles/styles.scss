@@ -1,148 +1,50 @@
 @import "setup";
+@import "mixins";
+@import "header";
+@import "answerAnimation";
+@import "footer";
 
-$secondaryColor: #21243d;
-$fontSecondary: #f9f7f7;
 
-
-
-// putting all styles here for now
-body {
-    background: $fontSecondary;
-
-    header {
-        height: 100vh;
-        text-align: center;
-        background: linear-gradient(to right bottom, $secondaryColor 50%, $fontSecondary 50%);
-
-        h1 {
-            font-size: 4rem;
-        }
-
-        h1:first-child {
-            padding-top: 20%;
-            padding-right: 15%;
-            color: $fontSecondary;
-        }
-
-        h1:nth-child(2) {
-            color: $secondaryColor;
-            padding-left: 15%;
-            padding-bottom: 50px;
-        }
-
-        button {
-            margin: 20px auto 200px;
-            padding: 10px 20px;
-            display: inline-block;
-            background: $secondaryColor;
-            color: $fontSecondary;
-        }
-    }
 
 
     main {
-        background-image: url('../assets/popcorn.png');
+        background-color: pink;
         height: calc(100vh - 50px);
 
         section {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-top: 100px;
-        }
-
-        button {
-            background: $secondaryColor;
-            color: $fontSecondary;
-            display: block;
-            padding: 15px 25px;
-            margin: 45px auto;
-            font-size: 1.8rem;
         }
 
         img {
+            margin-top: 30px;
             max-height: 500px;
             width: 100%;
         }
 
         p {
             position: absolute;
-            font-size: 7rem;
+            font-size: 6rem;
         }
 
         p.movieRating1 {
-            left: 10%;
+            left: 12%;
         }
 
         p.movieRating2 {
-            right: 10%;
+            right: 12%;
         }
 
         .score {
             right: 0;
         }
-    }
 
-    footer {
-        background: $fontSecondary;
-        height: 50px;
-        font-weight: bold;
-        text-align: center;
-        margin-top: 100px;
-    }
-
-
-    // Font Awesome and game area div styling
-    #movieArea1,
-    #movieArea2 {
-        position: relative;
-    }
-
-    .clickable {
-
-        .animateResponse1,
-        .animateResponse2 {
-            height: 100%;
-            position: absolute;
-            width: 100%;
-            z-index: 1;
-
-            .answerIcon1,
-            .answerIcon2 {
-                display: none;
-                font-size: 5rem;
-                text-align: center;
-                width: 100%;
-                line-height: 500px;
-            }
+        button {
+            display: block;
+            margin: 15px auto;
+            font-size: 1.2rem;
         }
     }
 
 
-    .wrongResponse {
-        display: none;
-        background-color: rgba(255, 0, 0, 0.2);
-
-        i {
-            color: red;
-        }
-    }
-
-    .correctResponse {
-        display: none;
-        background-color: rgba(30, 255, 0, 0.3);
-
-
-        i {
-            font-size: 5rem;
-            text-align: center;
-            width: 100%;
-            line-height: 500px;
-            color: green;
-        }
-    }
-
-    .displayIcons {
-        display: inline-block !important;
-    }
-}

@@ -231,47 +231,105 @@ html {
   margin: 0 auto;
 }
 
-body {
-  background: #f9f7f7;
-}
-
-body header {
+header {
   height: 100vh;
   text-align: center;
   background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, #21243d), color-stop(50%, #f9f7f7));
   background: linear-gradient(to right bottom, #21243d 50%, #f9f7f7 50%);
 }
 
-body header h1 {
+header h1 {
   font-size: 4rem;
 }
 
-body header h1:first-child {
+header h1:first-child {
   padding-top: 20%;
   padding-right: 15%;
   color: #f9f7f7;
 }
 
-body header h1:nth-child(2) {
+header h1:nth-child(2) {
   color: #21243d;
   padding-left: 15%;
   padding-bottom: 50px;
 }
 
-body header button {
-  margin: 20px auto 200px;
+button {
+  margin: 20px auto;
   padding: 10px 20px;
   display: inline-block;
   background: #21243d;
   color: #f9f7f7;
 }
 
-body main {
-  background-image: url("../assets/popcorn.png");
+#movieArea1,
+#movieArea2 {
+  position: relative;
+}
+
+.clickable .animateResponse1,
+.clickable .animateResponse2 {
+  height: 100%;
+  margin-top: 15px;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.clickable .animateResponse1 .answerIcon1,
+.clickable .animateResponse1 .answerIcon2,
+.clickable .animateResponse2 .answerIcon1,
+.clickable .animateResponse2 .answerIcon2 {
+  display: none;
+  font-size: 5rem;
+  text-align: center;
+  width: 100%;
+  line-height: 500px;
+}
+
+.wrongResponse {
+  display: none;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.wrongResponse i {
+  color: red;
+}
+
+.correctResponse {
+  display: none;
+  background-color: rgba(30, 255, 0, 0.3);
+}
+
+.correctResponse i {
+  font-size: 5rem;
+  text-align: center;
+  width: 100%;
+  line-height: 500px;
+  color: green;
+}
+
+.displayIcons {
+  display: inline-block !important;
+}
+
+footer {
+  background: #f9f7f7;
+  height: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+
+footer p {
+  padding: 20px 0px;
+}
+
+main {
+  background-color: pink;
   height: calc(100vh - 50px);
 }
 
-body main section {
+main section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -281,94 +339,33 @@ body main section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 100px;
 }
 
-body main button {
-  background: #21243d;
-  color: #f9f7f7;
-  display: block;
-  padding: 15px 25px;
-  margin: 45px auto;
-  font-size: 1.8rem;
-}
-
-body main img {
+main img {
+  margin-top: 30px;
   max-height: 500px;
   width: 100%;
 }
 
-body main p {
+main p {
   position: absolute;
-  font-size: 7rem;
+  font-size: 6rem;
 }
 
-body main p.movieRating1 {
-  left: 10%;
+main p.movieRating1 {
+  left: 12%;
 }
 
-body main p.movieRating2 {
-  right: 10%;
+main p.movieRating2 {
+  right: 12%;
 }
 
-body main .score {
+main .score {
   right: 0;
 }
 
-body footer {
-  background: #f9f7f7;
-  height: 50px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 100px;
-}
-
-body #movieArea1,
-body #movieArea2 {
-  position: relative;
-}
-
-body .clickable .animateResponse1,
-body .clickable .animateResponse2 {
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  z-index: 1;
-}
-
-body .clickable .animateResponse1 .answerIcon1,
-body .clickable .animateResponse1 .answerIcon2,
-body .clickable .animateResponse2 .answerIcon1,
-body .clickable .animateResponse2 .answerIcon2 {
-  display: none;
-  font-size: 5rem;
-  text-align: center;
-  width: 100%;
-  line-height: 500px;
-}
-
-body .wrongResponse {
-  display: none;
-  background-color: rgba(255, 0, 0, 0.2);
-}
-
-body .wrongResponse i {
-  color: red;
-}
-
-body .correctResponse {
-  display: none;
-  background-color: rgba(30, 255, 0, 0.3);
-}
-
-body .correctResponse i {
-  font-size: 5rem;
-  text-align: center;
-  width: 100%;
-  line-height: 500px;
-  color: green;
-}
-
-body .displayIcons {
-  display: inline-block !important;
+main button {
+  display: block;
+  margin: 15px auto;
+  font-size: 1.2rem;
 }

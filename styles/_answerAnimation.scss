@@ -1,0 +1,50 @@
+// Font Awesome and game area div styling
+    #movieArea1,
+    #movieArea2 {
+        position: relative;
+    }
+
+    .clickable {
+
+        .animateResponse1,
+        .animateResponse2 {
+            height: 100%;
+            margin-top: 15px;
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+
+            .answerIcon1,
+            .answerIcon2 {
+                display: none;
+                font-size: 5rem;
+                text-align: center;
+                width: 100%;
+                line-height: 500px;
+            }
+        }
+    }
+
+    .wrongResponse {
+        display: none;
+        background-color: rgba(255, 0, 0, 0.2);
+        i {
+            color: red;
+        }
+    }
+
+    .correctResponse {
+        display: none;
+        background-color: rgba(30, 255, 0, 0.3);
+        i {
+            font-size: 5rem;
+            text-align: center;
+            width: 100%;
+            line-height: 500px;
+            color: green;
+        }
+    }
+
+    .displayIcons {
+        display: inline-block !important;
+    }

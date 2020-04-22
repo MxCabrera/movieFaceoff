@@ -144,8 +144,8 @@ movieApp.init = function () {
     $('#movieArea1, #movieArea2').on('click', function () {
         $('.score').append(`Score: ${movieApp.userScore}`)
         $('.movieRating1, .movieRating2').empty()
-        $('.movieRating1').append(`${movieApp.movieRating1}`);
-        $('.movieRating2').append(`${movieApp.movieRating2}`);
+        $('.movieRating1').append(`${movieApp.movieRating1}`).addClass('movieRating');
+        $('.movieRating2').append(`${movieApp.movieRating2}`).addClass('movieRating');
     })
 
 
@@ -157,6 +157,7 @@ movieApp.init = function () {
             $('.answerIcon').removeClass('display fa-check fa-times')
             $('.animateResponse').removeClass('display correctResponse wrongResponse')
             $('.movieArea').removeClass('shake bounce')
+            $('.movieRating').removeClass('movieRating')
         }
         
         $('.movieRating1, .movieRating2, .score').empty();

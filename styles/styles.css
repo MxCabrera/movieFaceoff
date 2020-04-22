@@ -236,30 +236,51 @@ body {
 }
 
 header {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
   text-align: center;
-  height: 100vh;
+  max-height: 100vh;
   width: 100%;
   background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, #21243d), color-stop(50%, #f9f7f7));
   background: linear-gradient(to bottom right, #21243d 50%, #f9f7f7 50%);
 }
 
+header .explosion {
+  background-image: url("../assets/explosion.png");
+  background-size: 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+}
+
 header h1 {
+  text-transform: uppercase;
   font-size: 4rem;
 }
 
 header h1:first-child {
-  padding-top: 20%;
-  margin-right: 15vw;
+  margin-right: 20vw;
+  padding-top: 290px;
   color: #f9f7f7;
 }
 
 header h1:nth-child(2) {
+  font-style: italic;
   color: #21243d;
-  padding-bottom: 50px;
-  margin-left: 15vw;
+  margin-left: 20vw;
+  padding-bottom: 80px;
+}
+
+header i {
+  width: 100%;
+  line-height: 20px;
+  font-size: 5rem;
+  color: #21243d;
+  padding-top: 30px;
 }
 
 button {
+  font-family: "Roboto Condensed", sans-serif;
   margin: 20px auto;
   padding: 10px 20px;
   display: inline-block;
@@ -267,9 +288,17 @@ button {
   color: #f9f7f7;
 }
 
+button:hover {
+  background: #f9f7f7;
+  color: #21243d;
+}
+
 main {
-  background-color: white;
-  height: calc(100vh - 50px);
+  font-family: "Bangers", cursive;
+  background-color: #f9f7f7;
+  height: 100%;
+  border-bottom: 2px solid #21243d;
+  padding-bottom: 80px;
 }
 
 main section {
@@ -284,6 +313,12 @@ main section {
           align-items: center;
 }
 
+main h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 80px 0;
+}
+
 main .movieArea {
   margin-top: 30px;
 }
@@ -293,9 +328,20 @@ main img {
   width: 100%;
 }
 
+main .vs {
+  z-index: 3;
+  background-color: palegoldenrod;
+  border: 2px solid #21243d;
+  border-radius: 50%;
+}
+
 main section p {
   position: absolute;
   font-size: 6rem;
+}
+
+main .movieRating {
+  border-bottom: 3px solid #21243d;
 }
 
 main p.movieRating1 {
@@ -382,6 +428,10 @@ footer p {
 }
 
 @media (max-width: 1260px) {
+  header h1:first-child {
+    padding-top: 330px;
+    padding-bottom: 40px;
+  }
   main section {
     position: relative;
   }
@@ -396,6 +446,23 @@ footer p {
 }
 
 @media (max-width: 800px) {
+  header {
+    height: 80vh;
+  }
+  header .explosion {
+    height: 100%;
+  }
+  header .explosion h1:first-child {
+    padding-top: 330px;
+    padding-bottom: 20px;
+  }
+  header .explosion h1:nth-of-type(2) {
+    margin-left: 20vw;
+    padding-top: 22px;
+  }
+  main h2 {
+    padding: 60px 0;
+  }
   .clickable .animateResponse .answerIcon {
     height: 100%;
     line-height: 300px;
@@ -406,8 +473,35 @@ footer p {
   .wrapper {
     width: 98%;
   }
+  header {
+    max-height: 50vh;
+  }
+  header .explosion {
+    height: 100%;
+  }
+  header .explosion h1 {
+    font-size: 3rem;
+  }
+  header .explosion h1:first-child {
+    height: 40%;
+    padding-top: 170px;
+    margin-right: 40vw;
+  }
+  header .explosion h1:nth-of-type(2) {
+    margin-left: 50vw;
+  }
+  header .explosion i {
+    display: none;
+  }
+  main {
+    height: 100%;
+    padding-top: 40px;
+  }
   main section {
     position: relative;
+  }
+  main h2 {
+    font-size: 1.5rem;
   }
   main .movieArea {
     margin-top: 80px;

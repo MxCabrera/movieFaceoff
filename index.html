@@ -7,22 +7,25 @@
     <title>Movie Quiz</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <script src="https://kit.fontawesome.com/2f36dc9985.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Roboto+Condensed:400,700,700i&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body>
     <header>
-
-        <h1>Movie</h1>
-
-        <h1>Faceoff</h1>
-        <button class="howTo">?</button>
-        <button class="letsPlay">Let's Play!</button>
-
+        <div class="explosion">
+            <h1>Movie</h1>
+            <h1>Faceoff</h1>
+            <button class="howTo">?</button>
+            <button class="letsPlay">Let's Play!</button>
+            <i class="fas fa-film"></i>
+        </div>
     </header>
 
     <main class="gameArea">
         <div class="wrapper">
+            <h2>Can you guess which movie online audiences rated higher?!</h2>
             <section>
                 <p class="movieRating1"></p>
                 <div class="movieArea clickable animated slow" id="movieArea1">
@@ -30,7 +33,7 @@
                         <i class="answerIcon fas"></i>
                     </span>
                 </div>
-
+                <p class="vs">VS</p>
                 <div class="movieArea clickable animated slow" id="movieArea2">
                     <span class="animateResponse">
                         <i class="answerIcon fas"></i>

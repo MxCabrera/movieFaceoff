@@ -1,4 +1,10 @@
 @media (max-width: 1260px) {
+    header {
+        h1:first-child {
+            padding-top: 330px;
+            padding-bottom: 40px;
+        }
+    }
     main {
         section {
             position: relative;
@@ -13,26 +19,83 @@
             font-size: 4rem;
         }
     }
-        
+
 
 }
 
 @media (max-width: 800px) {
-    .clickable .animateResponse .answerIcon {
+    header {
+        height: 80vh;
+
+        .explosion {
             height: 100%;
-            line-height: 300px;
+
+            h1:first-child {
+                padding-top: 330px;
+                padding-bottom: 20px;
+            }
+            h1:nth-of-type(2) {
+                margin-left: 20vw;
+                padding-top: 22px;
+            }
         }
+    }
+
+    main {
+        h2 {
+            padding: 60px 0;
+        }
+    }
+
+    .clickable .animateResponse .answerIcon {
+        height: 100%;
+        line-height: 300px;
+    }
 }
 
 @media (max-width: 500px) {
     .wrapper {
         width: 98%;
     }
+
+    header {
+        max-height: 50vh;
+
+        .explosion {  
+            height: 100%;
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            h1:first-child {
+                height: 40%;
+                padding-top: 170px;
+                margin-right: 40vw;
+            }
+
+            h1:nth-of-type(2) {
+                margin-left: 50vw;
+            }
+
+            i {
+                display: none;
+            }
+        }
+    }
+
     main {
+        height: 100%;
+        padding-top: 40px;
+
         section {
             position: relative;
         }
-        
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
         .movieArea {
             margin-top: 80px;
         }
@@ -48,4 +111,3 @@
         }
     }
 }
-

@@ -1,0 +1,47 @@
+@media (max-width: 1260px) {
+    main {
+        section {
+            position: relative;
+        }
+
+        .movieRating1,
+        .movieRating2 {
+            display: inline-block;
+            bottom: 0px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 0px 10px;
+            font-size: 4rem;
+        }
+    }
+        
+
+}
+
+@media (max-width: 800px) {
+    .clickable .animateResponse .answerIcon {
+            height: 100%;
+            line-height: 300px;
+        }
+}
+
+@media (max-width: 500px) {
+    main {
+        section {
+            position: relative;
+        }
+        
+        .movieArea {
+            margin-top: 80px;
+        }
+
+        .movieRating1,
+        .movieRating2 {
+            bottom: -60px;
+            font-size: 3rem;
+        }
+
+        .scoreRound {
+            margin-top: 50%;
+        }
+    }
+}

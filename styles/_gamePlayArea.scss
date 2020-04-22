@@ -1,0 +1,53 @@
+    main {
+        background-color: pink;
+        height: calc(100vh - 50px);
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .movieArea {
+            margin-top: 30px;
+        }
+
+        img {
+            max-height: 500px;
+            width: 100%;
+        }
+
+        section p {
+            position: absolute;
+            font-size: 6rem;
+        }
+
+        p.movieRating1 {
+            left: 12%;
+            z-index: 1;
+        }
+
+        p.movieRating2 {
+            right: 12%;
+            z-index: 1;
+        }
+
+        .scoreRound {
+            width: 100%;
+            text-align: center;
+        }
+
+
+        .score {
+            padding: 10px 20px;
+            color: $secondaryColor;
+            font-size:  2rem;
+            display: inline-block;
+        }
+
+        button {
+            font-size: 1.2rem;
+        }
+
+
+    }

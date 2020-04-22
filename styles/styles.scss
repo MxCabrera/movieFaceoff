@@ -1,53 +1,8 @@
 @import "setup";
 @import "mixins";
 @import "header";
+@import "gamePlayArea";
 @import "answerAnimation";
 @import "footer";
-
-
-
-
-    main {
-        background-color: pink;
-        height: calc(100vh - 50px);
-
-        section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .movieArea {
-            margin-top: 30px;
-        }
-
-        img {
-            max-height: 500px;
-            width: 100%;
-        }
-
-        p {
-            position: absolute;
-            font-size: 6rem;
-        }
-
-        p.movieRating1 {
-            left: 12%;
-        }
-
-        p.movieRating2 {
-            right: 12%;
-        }
-
-        .score {
-            right: 0;
-        }
-
-        button {
-            display: block;
-            margin: 15px auto;
-            font-size: 1.2rem;
-        }
-    }
-
+@import "media";
 

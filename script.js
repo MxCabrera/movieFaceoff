@@ -11,7 +11,9 @@ movieApp.init = function () {
     // listen for click on the how to play button to display alert 
     $('button.howTo').on('click', function (e) {
         e.preventDefault();
-        alert(`click the movie you think is more popular!`)
+        alert(`
+        Click the movie you think is more popular!
+        See how high you can get your winning streak to be.`)
     });
 
     // listen for click on Let's Play button to scroll down the game area
@@ -50,13 +52,18 @@ movieApp.init = function () {
             const movieImg2 = result.results[randomMovie2].poster_path;
             const movieURL2 = `https://image.tmdb.org/t/p/original/${movieImg2}`;
 
+            // Movie title from API
+            const movieTitle1 = result.results[randomMovie1].original_title;
+            const movieTitle2 = result.results[randomMovie2].original_title;
+
+
             // Movie ratings from API
             movieApp.movieRating1 = result.results[randomMovie1].vote_average;
             movieApp.movieRating2 = result.results[randomMovie2].vote_average;
 
-            // Display Images to the DOM
-            const displayMovieImage1 = `<img class="movie1" src="${movieURL1}" alt="will figure out">`
-            const displayMovieImage2 = `<img class="movie2" src="${movieURL2}" alt="will figure out">`
+            // Display Images to the DOM with alt text populated using movieTitle variable
+            const displayMovieImage1 = `<img class="movie1" src="${movieURL1}" alt="${movieTitle1} movie poster">`
+            const displayMovieImage2 = `<img class="movie2" src="${movieURL2}" alt="${movieTitle2} movie poster">`
             $('#movieArea1').append(displayMovieImage1);
             $('#movieArea2').append(displayMovieImage2);
 

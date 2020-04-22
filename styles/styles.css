@@ -232,10 +232,11 @@ html {
 }
 
 header {
-  height: 100vh;
   text-align: center;
+  height: 100vh;
+  width: 100%;
   background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, #21243d), color-stop(50%, #f9f7f7));
-  background: linear-gradient(to right bottom, #21243d 50%, #f9f7f7 50%);
+  background: linear-gradient(to bottom right, #21243d 50%, #f9f7f7 50%);
 }
 
 header h1 {
@@ -244,14 +245,14 @@ header h1 {
 
 header h1:first-child {
   padding-top: 20%;
-  padding-right: 15%;
+  margin-right: 15vw;
   color: #f9f7f7;
 }
 
 header h1:nth-child(2) {
   color: #21243d;
-  padding-left: 15%;
   padding-bottom: 50px;
+  margin-left: 15vw;
 }
 
 button {
@@ -260,6 +261,63 @@ button {
   display: inline-block;
   background: #21243d;
   color: #f9f7f7;
+}
+
+main {
+  background-color: pink;
+  height: calc(100vh - 50px);
+}
+
+main section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .movieArea {
+  margin-top: 30px;
+}
+
+main img {
+  max-height: 500px;
+  width: 100%;
+}
+
+main section p {
+  position: absolute;
+  font-size: 6rem;
+}
+
+main p.movieRating1 {
+  left: 12%;
+  z-index: 1;
+}
+
+main p.movieRating2 {
+  right: 12%;
+  z-index: 1;
+}
+
+main .scoreRound {
+  width: 100%;
+  text-align: center;
+}
+
+main .score {
+  padding: 10px 20px;
+  color: #21243d;
+  font-size: 2rem;
+  display: inline-block;
+}
+
+main button {
+  font-size: 1.2rem;
 }
 
 #movieArea1,
@@ -319,51 +377,40 @@ footer p {
   padding: 20px 0px;
 }
 
-main {
-  background-color: pink;
-  height: calc(100vh - 50px);
+@media (max-width: 1260px) {
+  main section {
+    position: relative;
+  }
+  main .movieRating1,
+  main .movieRating2 {
+    display: inline-block;
+    bottom: 0px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0px 10px;
+    font-size: 4rem;
+  }
 }
 
-main section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+@media (max-width: 800px) {
+  .clickable .animateResponse .answerIcon {
+    height: 100%;
+    line-height: 300px;
+  }
 }
 
-main .movieArea {
-  margin-top: 30px;
-}
-
-main img {
-  max-height: 500px;
-  width: 100%;
-}
-
-main p {
-  position: absolute;
-  font-size: 6rem;
-}
-
-main p.movieRating1 {
-  left: 12%;
-}
-
-main p.movieRating2 {
-  right: 12%;
-}
-
-main .score {
-  right: 0;
-}
-
-main button {
-  display: block;
-  margin: 15px auto;
-  font-size: 1.2rem;
+@media (max-width: 500px) {
+  main section {
+    position: relative;
+  }
+  main .movieArea {
+    margin-top: 80px;
+  }
+  main .movieRating1,
+  main .movieRating2 {
+    bottom: -60px;
+    font-size: 3rem;
+  }
+  main .scoreRound {
+    margin-top: 50%;
+  }
 }
